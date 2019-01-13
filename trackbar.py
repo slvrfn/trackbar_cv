@@ -1,3 +1,4 @@
+
 import cv2 as cv2
 import copy
 
@@ -15,7 +16,7 @@ def display_trackbar_window(window_name,draw_method,compute_values,**kwargs):
     def nothing(*a,**k): pass
     def to_tuple(count,initial_value,adjust): return count,initial_value,adjust
     cv2.namedWindow(window_name)
-    for (key,value) in kwargs.iteritems():
+    for (key,value) in kwargs.items():
         count,initial_value,adjust = to_tuple(**value)
         adjust_fns[key] = adjust
         cv2.createTrackbar(key, window_name,initial_value,count, nothing)
@@ -23,7 +24,7 @@ def display_trackbar_window(window_name,draw_method,compute_values,**kwargs):
         k = cv2.waitKey(1) & 0xFF
         if k==27:
             break
-        for key,value in kwargs.iteritems():
+        for key,value in kwargs.items():
             trackBarPos = cv2.getTrackbarPos(key,window_name)
             args[key] = adjust_fns[key](trackBarPos)
         if args == last_args: continue
