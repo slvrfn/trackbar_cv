@@ -15,7 +15,7 @@ def display_trackbar_window(window_name,draw_method,compute_values,**kwargs):
     adjust_fns = {}
     def nothing(*a,**k): pass
     def to_tuple(count,initial_value,adjust): return count,initial_value,adjust
-    cv2.namedWindow(window_name)
+    cv2.namedWindow(window_name,cv2.WINDOW_NORMAL|cv2.WINDOW_KEEPRATIO|cv2.WINDOW_GUI_EXPANDED)
     for (key,value) in kwargs.items():
         count,initial_value,adjust = to_tuple(**value)
         adjust_fns[key] = adjust
