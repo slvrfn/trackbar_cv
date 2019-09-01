@@ -10,7 +10,7 @@ def draw_image(point):
     new_image = np.copy(img)
     (x,y) = point
     cv2.line(new_image,(midpoint[0]+x,midpoint[1]+y),midpoint,[255,255,255])
-    return new_image
+    return new_image.astype(dtype= np.uint8 )
 
 def compute_values(rho,theta):
     x = int(np.cos(theta)*rho)
